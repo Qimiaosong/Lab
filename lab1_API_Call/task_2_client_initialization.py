@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+"""
+Task 2: Initialize the OpenAI Client
+Learn how to connect to OpenAI's servers.
+"""
+from dotenv import load_dotenv
+
+import openai
+import os
+
+# The OpenAI client needs two things:
+# 1. API Key - Your authentication (like a password)
+# 2. Base URL - Where to send requests (like an address)
+
+load_dotenv()
+# TODO: Initialize the OpenAI client
+client = openai.OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY"),    # TODO: Use "OPENAI_API_KEY"
+    base_url=os.getenv("OPENAI_API_BASE")     # TODO: Use "OPENAI_API_BASE"
+)
+# client = openai.OpenAI(
+#     base_url="https://xiaoai.plus/v1",
+#     api_key="sk-ks7KvtvJ7LZo2FI2aFLjzgirJkJkxt638pSfxkpJPjFJkOhO"
+# )
+
+print("✅ Step 2 Complete: Connected to OpenAI!")
+
+print(f"- API Key: {os.getenv('OPENAI_API_KEY')[:10]}...")
+print(f"- Base URL: {os.getenv('OPENAI_API_BASE')}")
+
+# Create marker
+os.makedirs("/Users/songwen", exist_ok=True)
+with open("/Users/songwen/task2_client_complete.txt", "w") as f:
+    f.write("SUCCESS")
